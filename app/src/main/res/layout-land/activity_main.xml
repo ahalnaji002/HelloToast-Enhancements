@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- The three buttons form a vertical chain between the top
+         and bottom edges of the count TextView (spread_inside). -->
+    <Button
+        android:id="@+id/button_toast"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="show_toast"
+        android:text="@string/toast"
+        app:layout_constraintBottom_toTopOf="@+id/button_zero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_display_count"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <Button
+        android:id="@+id/button_zero"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="show_zero"
+        android:text="@string/zero"
+        app:backgroundTint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/button_count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_toast" />
+
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="increase_count"
+        android:text="@string/count"
+        app:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/text_display_count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_zero" />
+
+    <!-- The count display sits to the right of the buttons. -->
+    <TextView
+        android:id="@+id/text_display_count"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:text="@string/count_value"
+        android:textColor="#673AB7"
+        android:textSize="150sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_toast"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
